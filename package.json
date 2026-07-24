@@ -1,45 +1,52 @@
 {
-  "name": "ecommerce-backend",
+  "name": "shop-frontend",
   "version": "1.0.0",
-  "description": "E-commerce REST API built with Express, Knex, and PostgreSQL",
-  "main": "src/server.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
-    "test": "jest --runInBand",
-    "test:coverage": "jest --runInBand --coverage",
-    "migrate": "knex migrate:latest",
-    "migrate:rollback": "knex migrate:rollback",
-    "migrate:make": "knex migrate:make",
-    "seed": "knex seed:run",
-    "db:reset": "knex migrate:rollback --all && knex migrate:latest && knex seed:run"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^8.13.0",
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-rate-limit": "^7.3.1",
-    "helmet": "^7.1.0",
-    "joi": "^17.13.1",
-    "jsonwebtoken": "^9.0.2",
-    "knex": "^3.1.0",
-    "morgan": "^1.10.0",
-    "pg": "^8.12.0",
-    "winston": "^3.13.0"
+    "@tanstack/react-query": "^5.28.0",
+    "axios": "^1.6.8",
+    "clsx": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
+    "tailwind-merge": "^2.2.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
+    "@eslint/js": "^9.0.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.3",
-    "supertest": "^7.0.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.8"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "license": "MIT"
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterFramework": [
+      "@testing-library/jest-dom"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "transform": {}
+  }
 }
