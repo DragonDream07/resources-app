@@ -1,30 +1,9 @@
-# ─── Dependencies ───────────────────────────────────────────────────────────────
-node_modules/
-
-# ─── Environment variables (never commit secrets) ───────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+.py_packages/
 .env
-.env.local
-.env.*.local
-
-# ─── Build output ───────────────────────────────────────────────────────────────
+node_modules/
 dist/
 build/
-
-# ─── Logs ───────────────────────────────────────────────────────────────────────
-logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# ─── Coverage ───────────────────────────────────────────────────────────────────
-coverage/
-.nyc_output/
-
-# ─── OS / editor artifacts ──────────────────────────────────────────────────────
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-*.swp
-*.swo
