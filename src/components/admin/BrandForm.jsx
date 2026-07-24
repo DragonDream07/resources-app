@@ -51,6 +51,8 @@ const BrandForm = ({ initialData = null, onSubmit, onCancel }) => {
     }
   };
 
+  const submitLabel = loading ? 'Saving…' : initialData ? 'Update Brand' : 'Create Brand';
+
   return (
     <form className="brand-form admin-form" onSubmit={handleSubmit}>
       <h2 className="admin-form__title">
@@ -127,7 +129,7 @@ const BrandForm = ({ initialData = null, onSubmit, onCancel }) => {
           Cancel
         </button>
         <button type="submit" className="btn btn--primary" disabled={loading}>
-          {loading ? 'Saving…' : initialData ? 'Update Brand' : 'Create Brand'}
+          {submitLabel}
         </button>
       </div>
     </form>

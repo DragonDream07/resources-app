@@ -59,6 +59,8 @@ const CategoryForm = ({ initialData = null, categories = [], onSubmit, onCancel 
     ? categories.filter((c) => c.id !== initialData.id)
     : categories;
 
+  const submitLabel = loading ? 'Saving…' : initialData ? 'Update Category' : 'Create Category';
+
   return (
     <form className="category-form admin-form" onSubmit={handleSubmit}>
       <h2 className="admin-form__title">
@@ -141,7 +143,7 @@ const CategoryForm = ({ initialData = null, categories = [], onSubmit, onCancel 
           Cancel
         </button>
         <button type="submit" className="btn btn--primary" disabled={loading}>
-          {loading ? 'Saving…' : initialData ? 'Update Category' : 'Create Category'}
+          {submitLabel}
         </button>
       </div>
     </form>

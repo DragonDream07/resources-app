@@ -1,35 +1,35 @@
 'use strict';
 
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const compression = require('compression');
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import compression from 'compression';
 
-const requestLogger = require('./middleware/requestLogger');
-const errorHandler = require('./middleware/errorHandler');
-const rateLimiter = require('./middleware/rateLimiter');
+import requestLogger from './middleware/requestLogger.js';
+import errorHandler from './middleware/errorHandler.js';
+import rateLimiter from './middleware/rateLimiter.js';
 
-const authRoutes = require('./modules/auth/auth.routes');
-const usersRoutes = require('./modules/users/users.routes');
-const rolesRoutes = require('./modules/roles/roles.routes');
-const addressesRoutes = require('./modules/addresses/addresses.routes');
-const catalogueRoutes = require('./modules/catalogue/catalogue.routes');
-const searchRoutes = require('./modules/search/search.routes');
-const cartRoutes = require('./modules/cart/cart.routes');
-const promotionsRoutes = require('./modules/promotions/promotions.routes');
-const checkoutRoutes = require('./modules/checkout/checkout.routes');
-const paymentsRoutes = require('./modules/payments/payments.routes');
-const ordersRoutes = require('./modules/orders/orders.routes');
-const returnsRoutes = require('./modules/returns/returns.routes');
-const notificationsRoutes = require('./modules/notifications/notifications.routes');
-const adminRoutes = require('./modules/admin/admin.routes');
+import authRoutes from './modules/auth/auth.routes.js';
+import usersRoutes from './modules/users/users.routes.js';
+import rolesRoutes from './modules/roles/roles.routes.js';
+import addressesRoutes from './modules/addresses/addresses.routes.js';
+import catalogueRoutes from './modules/catalogue/catalogue.routes.js';
+import searchRoutes from './modules/search/search.routes.js';
+import cartRoutes from './modules/cart/cart.routes.js';
+import promotionsRoutes from './modules/promotions/promotions.routes.js';
+import checkoutRoutes from './modules/checkout/checkout.routes.js';
+import paymentsRoutes from './modules/payments/payments.routes.js';
+import ordersRoutes from './modules/orders/orders.routes.js';
+import returnsRoutes from './modules/returns/returns.routes.js';
+import notificationsRoutes from './modules/notifications/notifications.routes.js';
+import adminRoutes from './modules/admin/admin.routes.js';
 
 function createApp() {
   const app = express();
 
   // Security middleware
   app.use(helmet());
-  app.use(cors());
+  app.use(cors({ origin: process.env.CORS_ORIGIN || false }));
   app.use(compression());
 
   // Body parsing middleware
@@ -74,4 +74,4 @@ function createApp() {
   return app;
 }
 
-module.exports = createApp;
+export default createApp;

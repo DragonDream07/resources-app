@@ -85,6 +85,8 @@ const ProductForm = ({ initialData = null, categories = [], brands = [], onSubmi
     }
   };
 
+  const submitLabel = loading ? 'Saving…' : initialData ? 'Update Product' : 'Create Product';
+
   return (
     <form className="product-form admin-form" onSubmit={handleSubmit}>
       <h2 className="admin-form__title">
@@ -246,7 +248,7 @@ const ProductForm = ({ initialData = null, categories = [], brands = [], onSubmi
           Cancel
         </button>
         <button type="submit" className="btn btn--primary" disabled={loading}>
-          {loading ? 'Saving…' : initialData ? 'Update Product' : 'Create Product'}
+          {submitLabel}
         </button>
       </div>
     </form>

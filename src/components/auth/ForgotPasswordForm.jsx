@@ -30,7 +30,7 @@ const ForgotPasswordForm = ({ onSubmit, loading = false, error = null, success =
     const err = validate(email);
     setFieldError(err);
     if (!err) {
-      onSubmit && onSubmit({ email });
+      if (onSubmit) onSubmit({ email });
     }
   };
 

@@ -101,7 +101,11 @@ function drawLine(ctx, data, width, height) {
     ds.data.forEach((val, i) => {
       const x = padding + i * step;
       const y = padding + chartHeight - (val / maxVal) * chartHeight;
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
     });
     ctx.stroke();
 

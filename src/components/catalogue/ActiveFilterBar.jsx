@@ -38,7 +38,7 @@ const ActiveFilterBar = ({ filters = [], onRemove, onClearAll }) => {
         >
           {filter.label}
           <button
-            onClick={() => onRemove && onRemove(filter.key)}
+            onClick={() => { if (onRemove) onRemove(filter.key); }}
             aria-label={`Remove filter: ${filter.label}`}
             style={{
               display: 'inline-flex',
@@ -61,7 +61,7 @@ const ActiveFilterBar = ({ filters = [], onRemove, onClearAll }) => {
       ))}
       {filters.length > 1 && (
         <button
-          onClick={() => onClearAll && onClearAll()}
+          onClick={() => { if (onClearAll) onClearAll(); }}
           style={{
             background: 'none',
             border: 'none',

@@ -47,7 +47,7 @@ const ResetPasswordForm = ({ onSubmit, loading = false, error = null, token = ''
     const errors = validate(values);
     setFieldErrors(errors);
     if (Object.keys(errors).length === 0) {
-      onSubmit && onSubmit({ token, password: values.password });
+      if (onSubmit) onSubmit({ token, password: values.password });
     }
   };
 

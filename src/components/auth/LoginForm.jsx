@@ -42,7 +42,7 @@ const LoginForm = ({ onSubmit, loading = false, error = null }) => {
     const errors = validate(values);
     setFieldErrors(errors);
     if (Object.keys(errors).length === 0) {
-      onSubmit && onSubmit(values);
+      if (onSubmit) onSubmit(values);
     }
   };
 

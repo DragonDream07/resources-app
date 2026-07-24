@@ -73,8 +73,9 @@ const RegisterForm = ({ onSubmit, loading = false, error = null }) => {
     const errors = validate(values);
     setFieldErrors(errors);
     if (Object.keys(errors).length === 0) {
+      // eslint-disable-next-line no-unused-vars
       const { confirm_password, ...payload } = values;
-      onSubmit && onSubmit(payload);
+      if (onSubmit) onSubmit(payload);
     }
   };
 

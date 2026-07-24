@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // ---------------------------------------------------------------------------
@@ -36,7 +36,10 @@ function AuthProvider({ children }) {
     localStorage.removeItem('auth_token');
   }, []);
 
-  const value = { user, token, login, logout, isAuthenticated: !!token };
+  const value = useMemo(
+    () => ({ user, token, login, logout, isAuthenticated: !!token }),
+    [user, token, login, logout]
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
@@ -72,7 +75,10 @@ function CartProvider({ children }) {
     localStorage.removeItem('cart_id');
   }, []);
 
-  const value = { cartId, cartCount, cartItems, initCart, updateCart, clearCart };
+  const value = useMemo(
+    () => ({ cartId, cartCount, cartItems, initCart, updateCart, clearCart }),
+    [cartId, cartCount, cartItems, initCart, updateCart, clearCart]
+  );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
@@ -114,7 +120,10 @@ function NotificationsProvider({ children }) {
     setUnreadCount(items.filter((n) => !n.read).length);
   }, []);
 
-  const value = { notifications, unreadCount, addNotification, markAllRead, markRead, setAll };
+  const value = useMemo(
+    () => ({ notifications, unreadCount, addNotification, markAllRead, markRead, setAll }),
+    [notifications, unreadCount, addNotification, markAllRead, markRead, setAll]
+  );
 
   return <NotificationsContext.Provider value={value}>{children}</NotificationsContext.Provider>;
 }

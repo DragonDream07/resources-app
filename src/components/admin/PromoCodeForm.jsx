@@ -76,6 +76,8 @@ const PromoCodeForm = ({ initialData = null, onSubmit, onCancel }) => {
     }
   };
 
+  const submitLabel = loading ? 'Saving…' : initialData ? 'Update Promo Code' : 'Create Promo Code';
+
   return (
     <form className="promo-code-form admin-form" onSubmit={handleSubmit}>
       <h2 className="admin-form__title">
@@ -190,11 +192,7 @@ const PromoCodeForm = ({ initialData = null, onSubmit, onCancel }) => {
           Cancel
         </button>
         <button type="submit" className="btn btn--primary" disabled={loading}>
-          {loading
-            ? 'Saving…'
-            : initialData
-            ? 'Update Promo Code'
-            : 'Create Promo Code'}
+          {submitLabel}
         </button>
       </div>
     </form>

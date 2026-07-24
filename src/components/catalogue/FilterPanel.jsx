@@ -61,21 +61,21 @@ const FilterPanel = ({
     const updated = selectedBrands.includes(brandId)
       ? selectedBrands.filter((id) => id !== brandId)
       : [...selectedBrands, brandId];
-    onBrandChange && onBrandChange(updated);
+    if (onBrandChange) onBrandChange(updated);
   };
 
   const handleMinPrice = (e) => {
     const val = Number(e.target.value);
-    onPriceRangeChange && onPriceRangeChange({ ...selectedPriceRange, min: val });
+    if (onPriceRangeChange) onPriceRangeChange({ ...selectedPriceRange, min: val });
   };
 
   const handleMaxPrice = (e) => {
     const val = Number(e.target.value);
-    onPriceRangeChange && onPriceRangeChange({ ...selectedPriceRange, max: val });
+    if (onPriceRangeChange) onPriceRangeChange({ ...selectedPriceRange, max: val });
   };
 
   const handleRatingSelect = (rating) => {
-    onRatingChange && onRatingChange(selectedRating === rating ? null : rating);
+    if (onRatingChange) onRatingChange(selectedRating === rating ? null : rating);
   };
 
   const labelStyle = {
