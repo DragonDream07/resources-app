@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" fill="none">
+  <rect x="0" y="4" width="24" height="24" rx="6" fill="#4c6ef5"/>
+  <path d="M6 10L3 14v10a2 2 0 002 2h14a2 2 0 002-2V14l-3-4z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="3" y1="14" x2="21" y2="14" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M16 18a4 4 0 01-8 0" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="22" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="-0.02em" fill="#212529">Shop</text>
+  <text x="72" y="22" font-family="'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="-0.02em" fill="#4c6ef5">App</text>
+</svg>
